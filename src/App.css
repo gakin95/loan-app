@@ -1,0 +1,100 @@
+#components-layout-demo-responsive .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+
+.logo {
+  background-color: grey;
+  height: 30px;
+  width: 100px;
+  border-radius: 1px 5px 1px 5px;
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  padding: 10px;
+  font-size: 8px;
+  font-weight: bold;
+  font-family: "Verdana";
+  margin-top: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.center {
+  width: 400px;
+  height: 350px;
+  background-color: rgba(0, 0, 0, 0.85);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.user-inputs {
+  width: 100%;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.bg-color {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.user-label {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.user-wrapper {
+  margin-bottom: 15px;
+}
+
+.header-label {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.btn {
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.signup-label {
+  text-align: center;
+}
+
+.btn-center {
+  text-align: center;
+}
+
+.user-error {
+  color: red;
+  font-size: 18;
+  text-align: center;
+}
+
+.white-colour {
+  color: white;
+}
+
+.loan-form-label {
+  margin-bottom: 10px;
+}
