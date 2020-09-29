@@ -24,7 +24,7 @@ export const SignupAction = (data) => {
   return (dispatch) => {
     dispatch(signupStart());
 
-    if (data.fullname === "") {
+    if (!data) {
       dispatch(signupFail("All fields are required!!"));
     } else {
       dispatch(signupSuccess(data));

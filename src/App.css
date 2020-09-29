@@ -98,3 +98,16 @@
 .loan-form-label {
   margin-bottom: 10px;
 }
+
+.user-dashboard-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color: white;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+.welcome {
+  margin-right: 20px;
+}

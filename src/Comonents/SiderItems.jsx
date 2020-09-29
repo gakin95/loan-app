@@ -14,6 +14,7 @@ const { Sider } = Layout;
 const SiderItems = () => {
   return (
     <Sider
+    style={{height:'100vh'}}
       breakpoint="lg"
       collapsedWidth="0"
       onBreakpoint={(broken) => {

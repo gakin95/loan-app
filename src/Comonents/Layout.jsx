@@ -7,10 +7,13 @@ import "antd/dist/antd.css";
 
 import MyFooter from "../Comonents/MyFooter";
 import SiderItems from "../Comonents/SiderItems";
+import { connect } from "react-redux";
 
 const { Header, Content, Footer } = Layout;
 
-const LayOut = ({ children }) => {
+const LayOut = ({ children, ...props }) => {
+  const user = props.user;
+  console.log('user',user)
   return (
     <>
       <Router>
@@ -22,9 +25,10 @@ const LayOut = ({ children }) => {
               style={{ padding: 0 }}
             >
               <div
-                style={{ color: "white", fontSize: 20, fontFamily: "cursive" }}
+                className="user-dashboard-header"
               >
-                Loans at best interest rate ever!
+                <p>Loans at best interest rate ever!</p>
+                <p className='welcome'>Welcome, {user?user.username:''}</p>
               </div>
             </Header>
             <Content style={{ margin: "24px 16px 0" }}>
@@ -45,4 +49,12 @@ const LayOut = ({ children }) => {
   );
 };
 
-export default LayOut;
+const mapStateToProps = (state) => {
+  return {
+    user: state.signup.user ? state.signup.user : null,
+    error: state.signup.error,
+    loading: state.signup.loading,
+  };
+};
+
+export default connect(mapStateToProps)(LayOut);

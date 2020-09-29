@@ -24,7 +24,7 @@ function logger({ getState }) {
   };
 }
 
-const composeEnhancers = window._REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducers,
   composeEnhancers(applyMiddleware(logger, ReduxThunk))

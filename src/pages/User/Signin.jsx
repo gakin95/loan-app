@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Layout } from "antd";
 import "../../App.css";
-
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
 import { AuthUser } from "../../contexts/user";
 
 const { Content } = Layout;
@@ -13,17 +14,24 @@ const SignIn = (props) => {
   const [username, setUsername] = useState(""),
     [password, setPassword] = useState(""),
     [error, setError] = useState(false);
+    const user = props.user;
 
   //check if the user details correspond to the
   // signup data
   const handleLogin = () => {
     console.log(username, password);
     console.log(usernameContext, passwordContext);
-    if (username === usernameContext && password === passwordContext) {
-      props.history.push("/dashboard");
+    console.log(user)
+    if ((user === null || username !== user.username) || (user === null || password !== user.password)) {
+      setError(true)
     } else {
-      setError(true);
+      props.history.push("/dashboard");
     }
+    // if (user || (username === user.username && password === user.password)) {
+    //   props.history.push("/dashboard");
+    // } else {
+    //   setError(true);
+    // }
   };
 
   return (
@@ -76,4 +84,12 @@ const SignIn = (props) => {
   );
 };
 
-export default SignIn;
+const mapStateToProps = (state) => {
+  return {
+    user: state.signup.user ? state.signup.user : null,
+    error: state.signup.error,
+    loading: state.signup.loading,
+  };
+};
+
+export default connect(mapStateToProps)(SignIn);

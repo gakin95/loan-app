@@ -9,29 +9,51 @@ const { Content } = Layout;
 
 const SignUp = (props) => {
   const { setUsername, setPassword } = useContext(AuthUser);
+  const [error, setError] = useState('')
   const [state, setState] = useState({
     fullname: "",
     username: "",
     password: "",
   });
-
+ // validation 
+ const validateSignup = ({username, password, fullname }) => {
+      if (fullname.length < 5) {
+        setError('Full name must be greater than four characters');
+        return
+      }
+      if (username.trim().length < 3) {
+        setError('Username must be greater than two characters');
+        return
+      }
+      if (password.trim().length < 3) {
+        setError('password must be greater than two characters');
+        return
+      }
+      return true
+ }
   //handle signup
   const handleSignup = (e) => {
     e.preventDefault();
-    props.onSignup(state);
-
-    if (
-      state.fullname !== "" ||
-      state.username !== "" ||
-      state.password !== ""
-    ) {
-      //set user details inside context
-      setUsername(state.username);
-      setPassword(state.password);
-
-      // redirect to signin component after singup
+    if (validateSignup(state)) {
+      //fake an api call
+      props.onSignup(state);
+     // redirect to signin component after singup
       props.history.push("/signin");
     }
+
+    // if (
+    //   state.fullname !== "" ||
+    //   state.username !== "" ||
+    //   state.password !== ""
+    // ) {
+    //   //set user details inside context
+    //   props.onSignup(state);
+    //   setUsername(state.username);
+    //   setPassword(state.password);
+
+    //   // redirect to signin component after singup
+    //   props.history.push("/signin");
+    // }
   };
 
   let { username, password, fullname } = state;
@@ -40,6 +62,7 @@ const SignUp = (props) => {
     <Layout className="layout bg-color">
       <Content style={{ padding: "0 50px" }}>
         <div className="center">
+          <p style={{color:'red'}}>{error}</p>
           <div className="header-label">Signup</div>
           <div className="user-error">{props.error}</div>
           <form>
