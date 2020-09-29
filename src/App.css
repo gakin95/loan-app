@@ -31,7 +31,7 @@
 
 .center {
   width: 400px;
-  height: 350px;
+  height: 400px;
   background-color: rgba(0, 0, 0, 0.85);
   position: absolute;
   top: 0;
@@ -42,6 +42,8 @@
   padding: 20px;
   border-radius: 5px;
 }
+
+
 
 .user-inputs {
   width: 100%;
@@ -79,6 +81,7 @@
 
 .signup-label {
   text-align: center;
+  color:white
 }
 
 .btn-center {

@@ -11,7 +11,7 @@ import {
 
 const { Sider } = Layout;
 
-const SiderItems = () => {
+const SiderItems = ({click}) => {
   return (
     <Sider
     style={{height:'100vh'}}
@@ -36,8 +36,8 @@ const SiderItems = () => {
         <Menu.Item key="2" icon={<PlusCircleOutlined />}>
           <Link to="/application">Loan Application</Link>
         </Menu.Item>
-        <Menu.Item key="3" icon={<LogoutOutlined />}>
-          <Link to="/">Signout</Link>
+        <Menu.Item key="3" icon={<LogoutOutlined />} onClick = {click}>
+          <Link >Signout</Link>
         </Menu.Item>
       </Menu>
     </Sider>

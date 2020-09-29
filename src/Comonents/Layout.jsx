@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React, {useEffect} from "react";
+import { withRouter, BrowserRouter as Router } from "react-router-dom";
 import "../App.css";
 
 import { Layout } from "antd";
@@ -8,17 +8,24 @@ import "antd/dist/antd.css";
 import MyFooter from "../Comonents/MyFooter";
 import SiderItems from "../Comonents/SiderItems";
 import { connect } from "react-redux";
+import * as actions from "../store/actions";
 
 const { Header, Content, Footer } = Layout;
 
 const LayOut = ({ children, ...props }) => {
   const user = props.user;
+  const logout = props.onLogOut;
+  useEffect(() => {
+    if (!user) {
+      props.history.push('/signin')
+    }
+  },[user])
   console.log('user',user)
   return (
     <>
       <Router>
         <Layout>
-          <SiderItems />
+          <SiderItems click={() => logout()}/>
           <Layout>
             <Header
               className="site-layout-sub-header-background"
@@ -57,4 +64,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(LayOut);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogOut: () => dispatch(actions.Logout()),
+  };
+};
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(LayOut));

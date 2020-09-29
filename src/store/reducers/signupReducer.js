@@ -14,6 +14,8 @@ const SignupReduder = (state = initialState, action) => {
       return { ...state, loading: false, user: action.user, error: null };
     case actionTypes.SIGNUP_FAIL:
       return { ...state, loading: false, error: action.error, user: null };
+    case actionTypes.LOGOUT:
+      return { ...state, user: null};
     default:
       return state;
   }

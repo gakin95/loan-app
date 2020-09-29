@@ -1,1 +1,8 @@
-export { SignupAction } from "./signupAction";
+export {
+     SignupAction
+     } from "./signupAction";
+
+export {
+    Logout
+} from './logout'
+

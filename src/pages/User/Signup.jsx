@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import {Link} from 'react-router-dom';
 import { Layout } from "antd";
 import "../../App.css";
 import { connect } from "react-redux";
@@ -106,6 +107,11 @@ const SignUp = (props) => {
               </button>
             </div>
           </form>
+          <div className="user-wrapper">
+            <div className="signup-label">
+                Have an account? <Link to="/signin">Signin</Link>
+              </div>
+          </div>
         </div>
       </Content>
     </Layout>
